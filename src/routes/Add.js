@@ -19,7 +19,7 @@ export default function AddPage(){
         })
         .catch(err => console.error(err));
 
-        
+
     }
 
 

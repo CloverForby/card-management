@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-//import { login } from "../services/api";
+import { login } from "../services/api";
 
 export default function LoginPage() {
 
@@ -15,7 +15,7 @@ export default function LoginPage() {
         setBusy(true);
         setError("");
 
-        /*try {
+        try {
             const res = await login({ username, password });
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             const data = await res.json();
@@ -26,7 +26,7 @@ export default function LoginPage() {
             setError("Login failed");
         } finally {
         setBusy(false);
-        }*/
+        }
     }
 
     return (
@@ -34,11 +34,16 @@ export default function LoginPage() {
         <main>
             <h2>Login</h2>
             <form onSubmit={handleSubmit}>
-                <input value={username} onChange={(e) => setUsername(e.target.value)} />
-                <input value={password} onChange={(e) => setPassword(e.target.value)}
-                type="password" />
+                <label for='UserInput'>Username</label>
+                <br></br>
+                <input value={username} onChange={(e) => setUsername(e.target.value)} type="text" id="UserInput" name="UserInput"/>
+                <br></br>
+                <label for='PassInput'>Password</label>
+                <br></br>
+                <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" id="PassInput" name="PassInput"/>
                 {error ? <p style={{ color: "crimson" }}>{error}</p> : null}
-                <button disabled={busy} type="submit">{busy ? "Logging in..." : "Login"}</button>
+                <br></br>
+                <button className="button" disabled={busy} type="submit">{busy ? "Logging in..." : "Login"}</button>
             </form>
         </main>
     );

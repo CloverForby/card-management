@@ -51,7 +51,7 @@ hr{
   margin-right: 35em;
 }
 
-input[type="text"]{
+input[type="text"], input[type="password"]{
   padding: 1em;
   border-radius: 10px;
   width: 30vw;
