@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { DeleteCard, EditCard } from "../services/api";
@@ -9,7 +9,10 @@ export default function EditPage(){
     const [image, setImage] = useState(state.card_pic)
 
     const navigate = useNavigate();
-
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (!token) navigate("/login");
+        }, [navigate]);
 
     function HandleSubmit(e){
         e.preventDefault();

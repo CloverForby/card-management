@@ -6,15 +6,13 @@ import CardsPage from './routes/Cards';
 import AddPage from './routes/Add';
 import EditPage from './routes/Edit';
 import LoginPage from './routes/Login';
+import { Navbar } from 'react-bootstrap';
+import NavBar from './component/Navbar';
 function App() {
   return (
     <div className="App">
       <h1>Card Management App</h1>
-      <nav>
-        <Link to="/">Home</Link> 
-        <Link to="/cards">Cards</Link>
-        <Link to="/login">Login</Link>
-      </nav>
+      <NavBar />
       <hr></hr>
       <Routes>
         <Route path='/' element={<HomePage/>}/>

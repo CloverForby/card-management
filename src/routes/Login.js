@@ -20,9 +20,12 @@ export default function LoginPage() {
             if (!res.ok) throw new Error(`HTTP ${res.status}`);
             const data = await res.json();
             localStorage.setItem("token", data.token);
-            navigate("/cards/new");
+            console.log("YEE")
+
+            navigate("/cards");
         } catch (e2) {
             console.error(e2);
+            console.log("WWWW")
             setError("Login failed");
         } finally {
         setBusy(false);

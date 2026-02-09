@@ -9,6 +9,11 @@ body{
   margin: auto;
 }
 
+nav{
+  display: flex;
+  justify-content: space-between;
+}
+
 nav a{
   text-decoration: none;
   margin-right: 0.1em;
@@ -16,6 +21,17 @@ nav a{
   color: black;
   padding: 0.5em 1em;
   border-radius: 5px;
+}
+
+.logout{
+  text-decoration: none;
+  margin-right: 0.1em;
+  background-color: rgb(190, 75, 21);
+  color: black;
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  color: white;
+  border: transparent;
 }
 
 nav a:hover{

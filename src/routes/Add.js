@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AddCard } from "../services/api";
 
@@ -8,6 +8,10 @@ export default function AddPage(){
 
     const navigate = useNavigate();
 
+    useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) navigate("/login");
+    }, [navigate]);
 
     function HandleSubmit(e){
         e.preventDefault();
@@ -22,9 +26,9 @@ export default function AddPage(){
 
     }
 
-
+    
     return <>
-        <h2>Edit Card</h2>
+        <h2>Add Card</h2>
         <form onSubmit={HandleSubmit}>
             <label for='TitleInput'>Title</label>
             <br></br>

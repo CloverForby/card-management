@@ -9,6 +9,9 @@ function GetCards(){
 function DeleteCard(id){
     return fetch(`${endpoint_url}deletecard/${id}`, {
             method: "DELETE",
+            headers: {
+                ...authHeader(),
+            },
         });
 }
 
@@ -17,6 +20,7 @@ function EditCard(id,title,image){
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
+                ...authHeader(),
             },
             body: JSON.stringify({
                 card_name: title,
@@ -48,7 +52,7 @@ function authHeader() {
 
 function login(credentials) {
 
-    return fetch(`${endpoint_url}/login`, {
+    return fetch(`${endpoint_url}login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(credentials),
